@@ -10,6 +10,7 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
+import Image from "next/image";
 
 const images = ['/webdev.jfif', '/webdev1.png', '/webdev2.jfif']
 
@@ -104,7 +105,13 @@ export default function Home() {
                         <div className="p-1 h-full w-full">
                           <Card className="p-0 h-full w-full">
                             <CardContent className="p-0 h-full w-full">
-                              <img className="w-full h-full object-cover" src={src} />
+                              <Image
+                                width={800}
+                                height={500}
+                                className="w-full h-full object-cover"
+                                src={src}
+                                alt="carousel image"
+                              />
                             </CardContent>
                           </Card>
                         </div>

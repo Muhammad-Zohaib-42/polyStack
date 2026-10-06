@@ -10,6 +10,7 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel";
 import Link from "next/link";
+import Image from "next/image";
 
 const images = ["/webdev.jfif", "/webdev1.png", "/webdev2.jfif"];
 
@@ -60,10 +61,13 @@ const page = () => {
                       <CarouselItem key={index}>
                         <div className="p-1 h-full w-full">
                           <Card className="p-0 h-full w-full">
-                            <CardContent className="p-0 h-full w-full">
-                              <img
+                            <CardContent className="relative p-0 h-full w-full">
+                              <Image
+                                width={800}
+                                height={500}
                                 className="w-full h-full object-cover"
                                 src={src}
+                                alt="carousel image"
                               />
                             </CardContent>
                           </Card>
