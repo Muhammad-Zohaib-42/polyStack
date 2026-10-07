@@ -1,10 +1,13 @@
 "use client"
 
+import { useAuthContext } from "@/contexts/AuthContext"
 import React, { useState, useRef, useEffect } from "react"
+import toast from "react-hot-toast"
 
 const Page = () => {
   const [otp, setOtp] = useState(["", "", "", "", "", ""])
   const [activeIndex, setActiveIndex] = useState(0)
+  const {user} = useAuthContext()
 
   const inputsRef = useRef<(HTMLInputElement | null)[]>([])
 
@@ -46,6 +49,10 @@ const Page = () => {
   useEffect(() => {
     inputsRef.current[activeIndex]?.focus()
   }, [activeIndex])
+
+  useEffect(() => {
+    toast(`Verify your email. We've sent a 6-digit code to ${user?.email}. Enter it below`)
+  }, [])
 
   return (
     <main className="h-dvh flex items-center justify-center">

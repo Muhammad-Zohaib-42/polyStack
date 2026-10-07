@@ -1,6 +1,14 @@
-import Link from "next/link"
+"use client"
 
-const page = () => {
+import Link from "next/link"
+import { useEffect } from "react"
+import toast from "react-hot-toast"
+
+const Page = () => {
+  useEffect(() => {
+    toast("Please sign in or create an account to continue.")
+  }, [])
+
   return (
     <main className="h-dvh flex items-center justify-center">
       <form className="flex flex-col gap-2 w-full max-w-76 py-5 px-7 pb-6 bg-white rounded-md shadow-md">
@@ -21,4 +29,4 @@ const page = () => {
   )
 }
 
-export default page
+export default Page

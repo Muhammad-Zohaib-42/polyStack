@@ -1,6 +1,6 @@
 "use client";
 
-import { ArrowDown, BookOpen, Heart, Plus, Share2 } from "lucide-react";
+import { ArrowDown, BookOpen, Heart, Share2 } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import {
   Carousel,
@@ -10,13 +10,13 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel";
 import Image from "next/image";
-import DashboardLink from "@/contexts/DashboardLink";
+import DashboardLink from "@/components/ui/DashboardLink";
+import CreateArticleBtn from "@/components/ui/CreateArticleBtn";
 
 const images = ["/webdev.jfif", "/webdev1.png", "/webdev2.jfif"];
 
 export default function Home() {
   function handleScroll() {
-    alert("scrolling to recent articles section");
     window.scrollTo(0, 617);
   }
 
@@ -70,10 +70,7 @@ export default function Home() {
             Search
           </button>
         </div>
-        <button onClick={() => alert("Creating new article")} onTouchStart={() => alert("Creating new article")} className="px-3 md:px-5 py-0.5 ml-1 md:ml-2 flex items-center gap-1 rounded-full cursor-pointer bg-emerald-500 text-slate-100 transition-all duration-300 hover:bg-emerald-600 focus:bg-emerald-600 outline-none">
-          <Plus size={20} />
-          <span className="font-semibold">Create</span>
-        </button>
+        <CreateArticleBtn />
       </div>
       <section className="p-3 md:p-5 grid grid-cols-[repeat(auto-fill,minmax(200px,1fr))] md:grid-cols-[repeat(auto-fill,minmax(400px,1fr))] gap-3">
         {Array.from({ length: 10 }).map((_, index) => (
