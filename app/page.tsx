@@ -1,7 +1,6 @@
 "use client";
 
 import { ArrowDown, BookOpen, Heart, Plus, Share2 } from "lucide-react";
-import Link from "next/link";
 import { Card, CardContent } from "@/components/ui/card";
 import {
   Carousel,
@@ -11,11 +10,13 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel";
 import Image from "next/image";
+import DashboardLink from "@/contexts/DashboardLink";
 
-const images = ['/webdev.jfif', '/webdev1.png', '/webdev2.jfif']
+const images = ["/webdev.jfif", "/webdev1.png", "/webdev2.jfif"];
 
 export default function Home() {
   function handleScroll() {
+    alert("scrolling to recent articles section");
     window.scrollTo(0, 617);
   }
 
@@ -23,14 +24,9 @@ export default function Home() {
     <div>
       <div className="h-dvh flex flex-col">
         <header className="flex items-center justify-end gap-3 px-5 pt-3 z-50">
-          <Link
-            href="/dashboard"
-            className="w-10 h-10 rounded-full flex items-center justify-center bg-emerald-500 text-white cursor-pointer transition-all duration-300 hover:bg-emerald-600 text-[15px] tracking-wide"
-          >
-            MZ
-          </Link>
+          <DashboardLink />
         </header>
-        <section className="grow flex flex-col gap-2 items-center justify-center">
+        <section className="grow flex flex-col gap-2 items-center pt-24 md:pt-10 px-3 md:px-0">
           <div className="flex flex-col items-center mb-3">
             <Share2 size={34} className="rotate-90" />
             <div className="flex items-center">
@@ -40,11 +36,11 @@ export default function Home() {
             </div>
             <Share2 size={34} className="-rotate-90" />
           </div>
-          <h1 className="text-6xl">
+          <h1 className="text-3xl md:text-6xl">
             Welcome To{" "}
             <span className="font-bold text-emerald-500">polyStack</span>
           </h1>
-          <p className="text-neutral-700 py-3 text-lg">
+          <p className="text-neutral-700 py-3 text-lg text-center">
             polyStack is the space where people write articles from all over the
             world
           </p>
@@ -60,8 +56,8 @@ export default function Home() {
           </button>
         </section>
       </div>
-      <div className="flex justify-end px-5 sticky top-0 bg-slate-100/70 backdrop-blur-3xl z-10 py-3">
-        <div className="relative shrink-0 w-full max-w-[320px]">
+      <div className="flex justify-end px-1 md:px-5 sticky top-0 bg-slate-100/70 backdrop-blur-3xl z-10 py-3">
+        <div className="relative shrink md:shrink-0 w-full max-w-[320px]">
           <input
             className="border border-gray-300 rounded-full py-2 px-4 pr-22.5 outline-none focus:border-emerald-300 w-full bg-slate-100"
             placeholder="Search articles..."
@@ -74,12 +70,12 @@ export default function Home() {
             Search
           </button>
         </div>
-        <button className="px-5 py-0.5 ml-2 flex items-center gap-1 rounded-full cursor-pointer bg-emerald-500 text-slate-100 transition-all duration-300 hover:bg-emerald-600 focus:bg-emerald-600 outline-none">
+        <button onClick={() => alert("Creating new article")} onTouchStart={() => alert("Creating new article")} className="px-3 md:px-5 py-0.5 ml-1 md:ml-2 flex items-center gap-1 rounded-full cursor-pointer bg-emerald-500 text-slate-100 transition-all duration-300 hover:bg-emerald-600 focus:bg-emerald-600 outline-none">
           <Plus size={20} />
-          <span className="font-semibold">Create Article</span>
+          <span className="font-semibold">Create</span>
         </button>
       </div>
-      <section className="p-5 grid grid-cols-[repeat(auto-fill,minmax(400px,1fr))] gap-3">
+      <section className="p-3 md:p-5 grid grid-cols-[repeat(auto-fill,minmax(200px,1fr))] md:grid-cols-[repeat(auto-fill,minmax(400px,1fr))] gap-3">
         {Array.from({ length: 10 }).map((_, index) => (
           <div
             key={index}

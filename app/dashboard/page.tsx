@@ -17,26 +17,29 @@ const images = ["/webdev.jfif", "/webdev1.png", "/webdev2.jfif"];
 const page = () => {
   return (
     <main>
-      <div className="flex items-center justify-between px-5 sticky top-0 bg-slate-100/70 backdrop-blur-3xl z-10 py-3">
-        <Link href="/" className="px-3 pr-4 py-2 flex items-center gap-1 rounded-full cursor-pointer bg-emerald-500 text-slate-100 transition-all duration-300 hover:bg-emerald-600 focus:bg-emerald-600 outline-none">
+      <div className="flex items-center justify-between gap-1 px-1 md:px-5 sticky top-0 bg-slate-100/70 backdrop-blur-3xl z-10 py-3">
+        <Link
+          href="/"
+          className="px-3 pr-4 py-2 flex items-center gap-1 rounded-full cursor-pointer bg-emerald-500 text-slate-100 transition-all duration-300 hover:bg-emerald-600 focus:bg-emerald-600 outline-none"
+        >
           <ArrowLeft size={20} />
           <span>Back</span>
         </Link>
-          <div className="relative shrink-0 w-full max-w-[320px]">
-            <input
-              className="border border-gray-300 rounded-full py-2 px-4 pr-22.5 outline-none focus:border-emerald-300 w-full bg-slate-100"
-              placeholder="Search articles..."
-              type="text"
-            />
-            <button
-              className="px-3 py-1 rounded-full cursor-pointer bg-emerald-500 text-slate-100 transition-all duration-300 hover:bg-emerald-600 focus:bg-emerald-600 outline-none absolute top-1/2 right-1.5 -translate-y-1/2"
-              type="submit"
-            >
-              Search
-            </button>
-          </div>
+        <div className="relative md:shrink-0 w-full max-w-[320px]">
+          <input
+            className="border border-gray-300 rounded-full py-2 px-4 pr-22.5 outline-none focus:border-emerald-300 w-full bg-slate-100"
+            placeholder="Search articles..."
+            type="text"
+          />
+          <button
+            className="px-3 py-1 rounded-full cursor-pointer bg-emerald-500 text-slate-100 transition-all duration-300 hover:bg-emerald-600 focus:bg-emerald-600 outline-none absolute top-1/2 right-1.5 -translate-y-1/2"
+            type="submit"
+          >
+            Search
+          </button>
+        </div>
       </div>
-      <section className="p-5 grid grid-cols-[repeat(auto-fill,minmax(400px,1fr))] gap-3">
+      <section className="p-3 md:p-5 grid grid-cols-[repeat(auto-fill,minmax(200px,1fr))] md:grid-cols-[repeat(auto-fill,minmax(400px,1fr))] gap-3">
         {Array.from({ length: 10 }).map((_, index) => (
           <div
             key={index}
